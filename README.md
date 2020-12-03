@@ -11,3 +11,10 @@ User can also click the icon for the image in the table which will open the phot
 
 * [demo-app](demo-app) - Angular 11 front end
 * [demo-backend](demo-backend)- Spring boot back end
+
+
+### How to run for development
+1. There must be a flickr api key pasted into the `application.properties` file.
+2. Start the `demo-backend/DemoBackendApplication` spring boot app.
+3. Navigate to `demo-app` and run `npm install`
+4. While in `demo-app` and run `npm start`
