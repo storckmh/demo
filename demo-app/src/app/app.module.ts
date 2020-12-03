@@ -21,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { PhotoTableComponent } from './main/photo-table/photo-table.component';
 import { HomeComponent } from './main/home/home.component';
 import {PhotoResolver} from './shared/resolvers/photo.resolver';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {PhotoResolver} from './shared/resolvers/photo.resolver';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     MatSortModule
   ],
   providers: [PhotoService, PhotoResolver],

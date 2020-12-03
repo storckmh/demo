@@ -3,6 +3,7 @@ package com.example.demobackend.service;
 import com.example.demobackend.model.FlickrReturnObject;
 import com.example.demobackend.model.FlickrPhotoMetadata;
 import com.google.gson.Gson;
+import org.apache.logging.log4j.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -57,6 +58,12 @@ public class FlickrService {
      */
     @Cacheable("photoMetadataCache")
     public List<FlickrPhotoMetadata> fetchPhotoMetadata() {
+
+        if (Strings.isEmpty(flickrApiKey)) {
+            logger.error("flickrApiKey must be set in application.properties file");
+            throw new RuntimeException("flickrApiKey has not been set");
+        }
+
         try {
             String url = UriComponentsBuilder.newInstance()
                     .scheme("https").host("api.flickr.com/services/rest/")
