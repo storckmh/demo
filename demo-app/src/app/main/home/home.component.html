@@ -1,0 +1,4 @@
+<div>
+  <app-map [photos]="photos$" [parentSubject]="parentSubject"></app-map>
+  <app-photo-table [photos]="photos$" (photoIdClickEmitter)="receiveMessage($event)"></app-photo-table>
+</div>
