@@ -4,7 +4,8 @@
     <ng-container matColumnDef="icon">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let row">
-        <button mat-icon-button color="accent" aria-label="Show Point" (click)="clickPhotoId(row.id)">
+        <button mat-icon-button color="accent" aria-label="Show Point" (click)="clickPhotoId(row.id)"
+          title="Show Marker">
           <mat-icon>open_in_new</mat-icon>
         </button>
       </td>
