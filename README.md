@@ -14,7 +14,15 @@ User can also click the icon for the image in the table which will open the phot
 
 
 ### How to run for development
-1. There must be a flickr api key pasted into the `application.properties` file.
+1. There must be a flickr api key pasted into the `demo-backend/src/main/resources/application.properties` file.
 2. Start the `demo-backend/DemoBackendApplication` spring boot app.
 3. Navigate to `demo-app` and run `npm install`
 4. While in `demo-app` and run `npm start`
+
+
+### How to build and run in 'production' mode
+1. run `./gradlew bootJar` to build the angular project and put it inside a spring boot runnable jar. Jar will be 
+located at `demo\demo-backend\build\libs\demo.jar`
+2. run `java -jar demo.jar`
+3. Open browser and navigate to http://localhost:8080/demo
+

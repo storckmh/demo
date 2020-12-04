@@ -7,5 +7,9 @@ task startFrontend(type: NpmTask) {
 }
 
 task buildFrontend(type: NpmTask) {
-  args = ['run', 'build']
+  args = ['run', 'build-prod']
 }
+
+startFrontend.dependsOn(npmInstall)
+buildFrontend.dependsOn(npmInstall)
+

@@ -6,11 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequestMapping({"/api"})
 public class PhotoController {
 
     private static final Logger logger = LoggerFactory.getLogger(PhotoController.class);
@@ -21,7 +23,7 @@ public class PhotoController {
     /**
      * @return list of photo metadata
      */
-    @GetMapping("api/photos")
+    @GetMapping("/photos")
     public List<FlickrPhotoMetadata> getPhotos() {
         logger.info("get photos");
         return flickrService.fetchPhotoMetadata();

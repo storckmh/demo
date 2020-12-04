@@ -23,3 +23,12 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+bootJar {
+	archiveName("demo.jar")
+	dependsOn ':demo-app:buildFrontend'
+
+	into('BOOT-INF/classes/static') {
+		from "${project(':demo-app').projectDir}/dist/demo-app"
+	}
+}
