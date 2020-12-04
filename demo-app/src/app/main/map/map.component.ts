@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { latLng, marker, tileLayer} from 'leaflet';
+import { latLng, marker, tileLayer, icon} from 'leaflet';
 import 'leaflet/dist/images/marker-shadow.png';
 import 'leaflet/dist/images/marker-icon.png';
 import 'leaflet/dist/images/marker-icon-2x.png';
@@ -21,6 +21,13 @@ export class MapComponent implements OnInit {
     center: latLng(46.0, 20.0)
   };
 
+  icon = icon({
+    iconSize: [ 25, 41 ],
+    iconAnchor: [ 13, 41 ],
+    iconUrl: 'assets/marker-icon.png',
+    shadowUrl: 'assets/marker-shadow.png'
+  });
+
   layers: any = [];
   @Input() photos: PhotoItem[];
   @Input() parentSubject: Subject<any>;
@@ -34,7 +41,7 @@ export class MapComponent implements OnInit {
       const popup = '<div style="width: 180px">' + photo.title +
         '<img style="width: 160px; margin-top: 5px; " src="' + photo.url + '"></div>';
       const photoTitle = photo.id as unknown as string;
-      const markerItem = marker([ photo.latitude, photo.longitude ], {title: photoTitle }).bindPopup(popup);
+      const markerItem = marker([ photo.latitude, photo.longitude ], {title: photoTitle, icon: this.icon }).bindPopup(popup);
       this.layers.push(markerItem);
     });
 
