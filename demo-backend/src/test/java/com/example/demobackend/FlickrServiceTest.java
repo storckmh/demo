@@ -25,7 +25,7 @@ public class FlickrServiceTest {
         String string = getString(is);
         logger.info("File successfully converted to String");
         FlickrService flickrService = new FlickrService();
-        FlickrReturnObject flickrReturnObject = flickrService.parseJson(string);
+        FlickrReturnObject flickrReturnObject = flickrService.parseFlickrJson(string);
 
         List<FlickrPhotoMetadata> photoMetadataList = flickrReturnObject.getPhoto().getPhotos();
         assertEquals(8, photoMetadataList.size());

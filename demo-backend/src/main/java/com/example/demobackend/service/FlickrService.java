@@ -53,6 +53,7 @@ public class FlickrService {
     }
 
     /**
+     * Retrieve list of photo metadata from flickr json web api.  Convert into a list of java objects.
      * @return list of photo metadata
      */
     @Cacheable("photoMetadataCache")
@@ -80,7 +81,7 @@ public class FlickrService {
 
             logger.debug("Received JSON: {}", jsonString);
 
-            FlickrReturnObject flickrPhotos = parseJson(jsonString);
+            FlickrReturnObject flickrPhotos = parseFlickrJson(jsonString);
 
             return flickrPhotos.getPhoto().getPhotos();
         } catch (Exception e) {
@@ -99,11 +100,11 @@ public class FlickrService {
     }
 
     /**
-     * Convert json string into java object
-     * @param json json string
+     * Convert flickr metadata json string into into java object
+     * @param json json string of flickr images metadata
      * @return The object converted from the json string
      */
-    public FlickrReturnObject parseJson(String json) {
+    public FlickrReturnObject parseFlickrJson(String json) {
         Gson gson = new Gson();
         return gson.fromJson(json, FlickrReturnObject.class);
     }

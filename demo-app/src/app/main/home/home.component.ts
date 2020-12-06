@@ -19,10 +19,18 @@ export class HomeComponent implements OnInit {
     this.photos$ = this.router.snapshot.data.photoData;
   }
 
+  /**
+   * Function that is called when a message is recieved from a child component
+   * @param $event event passed from message
+   */
   receiveMessage($event): void {
     this.notifyChildren($event);
   }
 
+  /**
+   * Notify child component of event on a photo id.
+   * @param photoId id of photo
+   */
   notifyChildren(photoId): void {
     this.parentSubject.next(photoId);
   }

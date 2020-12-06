@@ -35,6 +35,9 @@ export class PhotoTableComponent implements AfterViewInit, OnInit {
     this.table.dataSource = this.dataSource;
   }
 
+  /**
+   * @param id id of photo that was clicked on
+   */
   clickPhotoId(id): void {
     this.photoIdClickEmitter.emit(id);
   }

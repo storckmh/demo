@@ -12,6 +12,9 @@ export class PhotoService {
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) { }
 
+  /**
+   * Retrieve list of photos
+   */
   getPhotos(): Observable<PhotoItem[]> {
     const url = environment.apiUrl + 'photos';
 
