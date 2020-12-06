@@ -66,7 +66,7 @@ public class FlickrService {
 
         try {
             String url = UriComponentsBuilder.newInstance()
-                    .scheme("https").host("api.flickr.com/services/rest/")
+                    .scheme("https").host("api.flickr.com/services/rest")
                     .path("/").queryParam("method", "flickr.photos.search")
                     .queryParam("api_key", flickrApiKey)
                     .queryParam("tags", "fujifilm")
