@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {PhotoItem} from '../model/PhotoItem';
 import {environment} from '../../../environments/environment';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
